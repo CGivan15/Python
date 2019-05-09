@@ -50,17 +50,15 @@ def show_list():
 
     print("\nShooping List:")    
     
-    index = 1
-    for item in shopping_list:
+    for index, item in enumerate(shopping_list, start = 1):
         print("{}. {}".format(index, item))
-        index += 1
 
     print("-"*10)
 
 
 def remove_from_list():
     show_list()
-    what_to_remove = input("What would you like to remove?\n> ").upper()
+    what_to_remove = input("What would you like to remove?\n> ")
     try:
         shopping_list.remove(what_to_remove)
     except ValueError:
@@ -81,7 +79,7 @@ Enter 'REMOVE' to delete an item from your list.
 
 show_help()
 while True:
-    new_item = input("> ").upper()
+    new_item = input("> ")
     
     if new_item.upper() == "DONE" or new_item.upper() == "QUIT":
         break
